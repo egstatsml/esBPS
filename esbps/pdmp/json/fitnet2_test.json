@@ -1,0 +1,234 @@
+{
+    "posterior":"conv factorised gaussian",
+    "predict":"classify",
+    "loss":"bayes by backprop.",
+    "likelihood":"softmax",
+    "batch":100,
+    "epoch":2,
+    "learning rate":0.001,
+    "optimiser":"adam",
+    "layers":[
+        {
+            "name": "conv1",
+            "type": "conv",
+            "conv_param":{
+                "num_output": 16,
+                "kernel_size": 3,
+                "stride": 1,
+                "use_bias":0
+            },
+            "prior_param":{
+                "prior_input":"uninformative",
+                "prior_type":"gaussian mixture",
+                "prior_ratio":0.50,
+                "std":0.001
+            },
+            "weight_init":"orthogonal",
+            "activation":"ReLU"
+        },
+        {
+            "name": "conv2",
+            "type": "conv",
+            "conv_param":{
+                "num_output": 32,
+                "kernel_size": 3,
+                "stride": 1,
+                "use_bias":0
+            },
+            "prior_param":{
+                "prior_input":"uninformative",
+                "prior_type":"gaussian mixture",
+                "prior_ratio":0.50,
+                "std":0.001
+            },
+            "weight_init":"orthogonal",
+            "activation":"ReLU"
+        },
+        {
+            "name": "conv3",
+            "type": "conv",
+            "conv_param":{
+                "num_output": 32,
+                "kernel_size": 3,
+                "stride": 1,
+                "use_bias":0
+            },
+            "prior_param":{
+                "prior_input":"uninformative",
+                "prior_type":"gaussian mixture",
+                "prior_ratio":0.50,
+                "std":0.001
+            },
+            "weight_init":"orthogonal",
+            "activation":"ReLU"
+        },
+        {
+            "name": "pool1",
+            "type": "pool",
+            "pooling_param":{
+                "kernel_size": 2,
+                "stride": 2
+            }
+        },
+        {
+            "name": "conv4",
+            "type": "conv",
+            "conv_param":{
+                "num_output": 48,
+                "kernel_size": 3,
+                "stride": 1,
+                "use_bias":0
+            },
+            "prior_param":{
+                "prior_input":"uninformative",
+                "prior_type":"gaussian mixture",
+                "prior_ratio":0.50,
+                "std":0.001
+            },
+            "weight_init":"orthogonal",
+            "activation":"ReLU"
+        },
+        {
+            "name": "conv5",
+            "type": "conv",
+            "conv_param":{
+                "num_output": 64,
+                "kernel_size": 3,
+                "stride": 1,
+                "use_bias":0
+            },
+            "prior_param":{
+                "prior_input":"uninformative",
+                "prior_type":"gaussian mixture",
+                "prior_ratio":0.90,
+                "std":0.001
+            },
+            "weight_init":"orthogonal",
+                    "activation":"ReLU"
+        },
+        {
+            "name": "conv6",
+            "type": "conv",
+            "conv_param":{
+                "num_output": 80,
+                "kernel_size": 3,
+                "stride": 1,
+                "use_bias":0
+            },
+            "prior_param":{
+                "prior_input":"uninformative",
+                "prior_type":"gaussian mixture",
+                "prior_ratio":0.90,
+                "std":0.001
+            },
+            "weight_init":"orthogonal",
+            "activation":"ReLU"
+        },
+        {
+            "name": "pool2",
+            "type": "pool",
+            "pooling_param":{
+                "kernel_size": 2,
+                "stride": 2
+            }
+        },
+        {
+            "name": "conv7",
+            "type": "conv",
+            "conv_param":{
+                "num_output": 96,
+                "kernel_size": 3,
+                "stride": 1,
+                "use_bias":0
+            },
+            "prior_param":{
+                "prior_input":"uninformative",
+                "prior_type":"gaussian mixture",
+                "prior_ratio":0.90,
+                "std":0.001
+            },
+            "weight_init":"orthogonal",
+            "activation":"ReLU"
+        },
+        {
+            "name": "conv8",
+            "type": "conv",
+            "conv_param":{
+                "num_output": 96,
+                "kernel_size": 3,
+                "stride": 1,
+                "use_bias":0
+            },
+            "prior_param":{
+                "prior_input":"uninformative",
+                "prior_type":"gaussian mixture",
+                "prior_ratio":0.90,
+                "std":0.001
+            },
+            "weight_init":"orthogonal",
+            "activation":"ReLU"
+        },
+        {
+            "name": "conv9",
+            "type": "conv",
+            "conv_param":{
+                "num_output": 128,
+                "kernel_size": 3,
+                "stride": 1,
+                "use_bias":0
+            },
+            "prior_param":{
+                "prior_input":"uninformative",
+                "prior_type":"gaussian mixture",
+                "prior_ratio":0.90,
+                "std":0.001
+            },
+            "weight_init":"orthogonal",
+            "activation":"ReLU"
+        },
+        {
+            "name": "pool3",
+            "type": "pool",
+            "pooling_param":{
+                "kernel_size": 8,
+                "stride": 8
+            }
+        },
+        {
+            "name": "flatten",
+            "type": "flatten"
+        },
+        {
+            "name": "dense1",
+            "type": "dense",
+            "dense_param":{
+                "dim": 500,
+                "use_bias":1
+            },
+            "prior_param":{
+                "prior_input":"uninformative",
+                "prior_type":"gaussian mixture",
+                "prior_ratio":0.90,
+                "out_std":0.50
+            },
+            "weight_init":"orthogonal",
+            "activation":"ReLU"
+        },
+        {
+            "name": "dense2",
+            "type": "dense",
+            "dense_param":{
+                "dim": 10,
+                "use_bias":1
+            },
+            "prior_param":{
+                "prior_input":"uninformative",
+                "prior_type":"gaussian mixture",
+                "prior_ratio":0.90,
+                "out_std":0.5
+            },
+            "weight_init":"orthogonal",
+            "activation":"Linear"
+        }
+    ]
+}

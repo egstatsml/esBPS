@@ -1,0 +1,212 @@
+{
+    "posterior":"conv mcmc",
+    "predict":"classify",
+    "loss":"mse",
+    "likelihood":"categorical",
+    "batch":50,
+    "epoch":5000,
+    "learning rate":0.001,
+    "optimiser":"adam",
+    "layers":[
+        {
+            "name": "conv1",
+            "type": "conv",
+            "conv_param":{
+                "num_output": 16,
+                "kernel_size": 3,
+                "stride": 1,
+                "use_bias": 0
+            },
+            "prior_param":{
+                "prior_input":"uninformative"
+            },
+            "kernel_initializer":"orthogonal",
+            "bias_initializer":"glorot_uniform",
+            "activation":"elu"
+        },
+        {
+            "name": "conv2",
+            "type": "conv",
+            "conv_param":{
+                "num_output": 16,
+                "kernel_size": 3,
+                "stride": 1,
+                "use_bias": 0
+            },
+            "prior_param":{
+                "prior_input":"uninformative"
+            },
+            "kernel_initializer":"orthogonal",
+            "bias_initializer":"glorot_uniform",
+            "activation":"elu"
+        },
+        {
+            "name": "conv3",
+            "type": "conv",
+            "conv_param":{
+                "num_output": 16,
+                "kernel_size": 3,
+                "stride": 1,
+                "use_bias": 0
+            },
+            "prior_param":{
+                "prior_input":"uninformative"
+            },
+            "kernel_initializer":"orthogonal",
+            "bias_initializer":"glorot_uniform",
+            "activation":"elu"
+        },
+        {
+            "name": "pool1",
+            "type": "pool",
+            "pooling_param":{
+                "kernel_size": 2,
+                "stride": 2
+            }
+        },
+        {
+            "name": "conv4",
+            "type": "conv",
+            "conv_param":{
+                "num_output": 32,
+                "kernel_size": 3,
+                "stride": 1,
+                "use_bias": 0
+            },
+            "prior_param":{
+                "prior_input":"uninformative"
+            },
+            "kernel_initializer":"orthogonal",
+            "bias_initializer":"glorot_uniform",
+            "activation":"elu"
+        },
+        {
+            "name": "conv5",
+            "type": "conv",
+            "conv_param":{
+                "num_output": 32,
+                "kernel_size": 3,
+                "stride": 1,
+                "use_bias": 0
+            },
+            "prior_param":{
+                "prior_input":"uninformative"
+            },
+            "kernel_initializer":"orthogonal",
+            "bias_initializer":"glorot_uniform",
+            "activation":"elu"
+        },
+        {
+            "name": "conv6",
+            "type": "conv",
+            "conv_param":{
+                "num_output": 32,
+                "kernel_size": 3,
+                "stride": 1,
+                "use_bias": 0
+            },
+            "prior_param":{
+                "prior_input":"uninformative"
+            },
+            "kernel_initializer":"orthogonal",
+            "bias_initializer":"glorot_uniform",
+            "activation":"elu"
+        },
+        {
+            "name": "pool2",
+            "type": "pool",
+            "pooling_param":{
+                "kernel_size": 2,
+                "stride": 2
+            }
+        },
+        {
+            "name": "conv7",
+            "type": "conv",
+            "conv_param":{
+                "num_output": 48,
+                "kernel_size": 3,
+                "stride": 1,
+                "use_bias": 0
+            },
+            "prior_param":{
+                "prior_input":"uninformative"
+            },
+            "kernel_initializer":"orthogonal",
+            "bias_initializer":"glorot_uniform",
+            "activation":"elu"
+        },
+        {
+            "name": "conv8",
+            "type": "conv",
+            "conv_param":{
+                "num_output": 48,
+                "kernel_size": 3,
+                "stride": 1,
+                "use_bias": 0
+            },
+            "prior_param":{
+                "prior_input":"uninformative"
+            },
+            "kernel_initializer":"orthogonal",
+            "bias_initializer":"glorot_uniform",
+            "activation":"elu"
+        },
+        {
+            "name": "conv9",
+            "type": "conv",
+            "conv_param":{
+                "num_output": 48,
+                "kernel_size": 3,
+                "stride": 1,
+                "use_bias": 0
+            },
+            "prior_param":{
+                "prior_input":"uninformative"
+            },
+            "kernel_initializer":"orthogonal",
+            "bias_initializer":"glorot_uniform",
+            "activation":"elu"
+        },
+        {
+            "name": "pool3",
+            "type": "pool",
+            "pooling_param":{
+                "kernel_size": 8,
+                "stride": 8
+            }
+        },
+        {
+            "name": "flatten",
+            "type": "flatten"
+        },
+        {
+            "name": "dense1",
+            "type": "dense",
+            "dense_param":{
+                "dim": 500,
+                "use_bias": 1
+            },
+            "prior_param":{
+                "prior_input":"uninformative"
+            },
+            "kernel_initializer":"orthogonal",
+            "bias_initializer":"glorot_uniform",
+            "activation":"elu"
+        },
+        {
+            "name": "dense2",
+            "type": "dense",
+            "dense_param":{
+                "dim": 10,
+                "use_bias": 1
+            },
+            "prior_param":{
+                "prior_input":"uninformative"
+            },
+            "kernel_initializer":"orthogonal",
+            "bias_initializer":"glorot_uniform",
+            "activation":"linear"
+        }
+    ]
+}
